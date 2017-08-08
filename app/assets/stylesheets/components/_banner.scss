@@ -1,0 +1,22 @@
+.banner {
+  margin-bottom: 0px;
+  height: 600px;
+  background-position: right bottom;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  h2 {
+    letter-spacing: 4px;
+    color: $red;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-left: 90px;
+  }
+  display: flex;
+  justify-content: left;
+  align-items: center;
+    // text-shadow: black 0.3em 0.3em 0.3em;
+}
+
+.box {
+  width: 70%;
+}

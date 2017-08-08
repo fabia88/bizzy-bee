@@ -1,6 +1,11 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.all
+    if params[:category]
+      @category = Category.find_by_name(params[:category])
+      @jobs = @category.jobs
+    else
+      @jobs = Job.all
+    end
   end
 
   def show

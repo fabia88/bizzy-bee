@@ -1,9 +1,13 @@
-<div class="jumbotron text-center" style="background: url(<%= image_path "background_alt.jpg", height: "400" %>)">
-  <h2>Welcome to BizzyBee</h2>
+<div class="banner" style="background: url(<%= image_path "background.jpg" %>)">
+  <div>
+    <h2>Welcome to BizzyBee</h2>
+  </div>
 </div>
 <div class="information text-center">
   <div class="container">
-    <h3>Info</h3>
+    <h4>Do you want to get that extra money for your holidays?</h4>
+    <h4>Are you looking for a last-minute baby-sitter?</h4>
+    <h4><strong>BizzyBee is here to help!</strong></h4>
   </div>
 </div>
 <div class="categories">
@@ -14,6 +18,7 @@
         <div class="card-homepage text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path category.photo, height: 175, crop: :scale %>)">
           <h4><%= category.name %></h4>
         </div>
+        <%= link_to "", jobs_path(category: category.name), class: "card-link" %>
       </div>
       <% end %>
     </div>
@@ -21,6 +26,6 @@
 </div>
 <div class="jobs text-center">
   <div class="container">
-  <%= link_to "Browse all jobs", jobs_path, class: "btn btn-danger" %>
+    <%= link_to "Browse all jobs", jobs_path, class: "btn btn-primary btn-lg" %>
   </div>
 </div>

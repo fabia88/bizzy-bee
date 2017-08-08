@@ -1,3 +1,15 @@
-<h1>Welcome to BizzyBee!</h1>
-<p>Browse Categories:</p>
-<p>Browse Jobs:</p>
+<div class="jumbotron text-center">
+  <h2>Welcome to BizzyBee!</h2>
+</div>
+<div class="information text-center"><h3>Info</h3></div>
+<div class="categories">
+  <div class="container">
+    <div class="row">
+    <% @categories.each do |category| %>
+      <div class="col-xs-12 col-md-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path category.photo, height: 175, crop: :scale %>)"></div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

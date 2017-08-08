@@ -7,8 +7,8 @@
     <div class="row">
     <% @categories.each do |category| %>
       <div class="col-xs-12 col-md-4">
-        <div class="card text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path category.photo, height: 175, crop: :scale %>)">
-          <h4 class="card-category"><%= category.name %></h4>
+        <div class="card-homepage text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path category.photo, height: 175, crop: :scale %>)">
+          <h4><%= category.name %></h4>
         </div>
       </div>
       <% end %>

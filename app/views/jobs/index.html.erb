@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <% @jobs.each do |job| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= job.category.photo %>');">
+<!--         <div class="card-category">Placeholder</div>
+ -->        <div class="card-description">
+          <h4><%= job.title %></h4>
+          <p><%= job.description %></p>
+          <p><%= job.rate %></p>
+          <%= link_to "Go to job", job_path(job)%>
+        </div>
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+
+        <a class="card-link" href="#" ></a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+

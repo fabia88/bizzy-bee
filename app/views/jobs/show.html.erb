@@ -1,0 +1,42 @@
+<!-- title -->
+
+<div class="text-center">
+  <h2><%= @job.title %></h2>
+</div>
+
+<!-- cards -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6-offset-3">
+
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+        <div class="card-category">Job Information</div>
+        <div class="card-description">
+          <p>Description: <%= @job.description %></p>
+          <p>Category: <%= @job.category.name %></p>
+          <p>Rate: <%= @job.rate %></p>
+          <% if current_user == @job.user %>
+          <%= link_to "Delete", "#", class: "btn btn-primary" %>
+          <% else %>
+          <%= link_to "Send request to seller", "#", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-xs-6-offset-3">
+
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+        <div class="card-category">User Profile</div>
+        <div class="card-description">
+          <h2><%= @job.user.first_name %> <%= @job.user.last_name %></h2>
+          <p>Address: <%= @job.user.address %></p>
+          <p>Phone number: <%= @job.user.phone_number %></p>
+        </div>
+        <img class="card-user" src=<%= @job.user.avatar %>>
+      </div>
+
+    </div>
+  </div>
+</div>

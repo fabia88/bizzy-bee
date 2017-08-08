@@ -18,6 +18,7 @@ gem 'uglifier'
 
 # additional gems
 gem 'devise'
+gem 'faker'
 
 group :development, :test do
   gem 'better_errors'

@@ -1,0 +1,20 @@
+<h1>HELLO</h1>
+<% @jobs.each do |job| %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('');">
+      <div class="card-category">Placeholder</div>
+        <div class="card-description">
+          <h2><%= job.title %></h2>
+          <h2><%= job.description %></h2>
+          <h2><%= job.rate %></h2>
+          <%= link_to "Go to job", job_path(job)%>
+        </div>
+        <a class="card-link" href="#" ></a>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+

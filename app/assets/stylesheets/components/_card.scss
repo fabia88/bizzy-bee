@@ -48,7 +48,7 @@
   opacity: 0.1;
 }
 
-.card-homepage{
+.card-homepage {
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   // position: relative;
@@ -62,4 +62,9 @@
   h4 {
     text-transform: uppercase;
   }
+}
+
+.card-request {
+  color: $gray;
+  background-color: $light-gray;
 }

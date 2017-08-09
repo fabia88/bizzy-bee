@@ -1,8 +1,9 @@
+<h2 class="text-center index-heading">Job Listings</h2>
 <div class="container">
   <div class="row">
     <% @jobs.each do |job| %>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= job.category.photo %>');">
+    <div class="col-xs-12 col-sm-6">
+      <div class="card-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= job.category.photo %>');">
         <div class="card-description">
           <h4><%= job.title %></h4>
           <p><%= job.description %></p>
@@ -14,8 +15,8 @@
     </div>
     <% end %>
   </div>
+  <div class="jobs">
+    <%= link_to "Back to home", root_path, class: "btn btn-primary"%>
+  </div>
 </div>
 
-<div class="text-center">
-  <%= link_to "Back to home", root_path, class: "btn btn-primary"%>
-</div>

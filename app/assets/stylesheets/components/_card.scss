@@ -7,6 +7,20 @@
   position: relative;
   margin: 15px;
 }
+
+.card-index {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  // position: relative;
+  box-shadow: 5px 5px 1px rgba(0,0,0,0.2);
+  margin: 30px;
+  background-size: cover !important;
+  color: $white;
+  position: relative;
+  h4 {
+    text-transform: uppercase;
+    }
+}
 .card-user {
   position: absolute;
   right: 10px;

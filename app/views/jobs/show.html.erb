@@ -10,7 +10,7 @@
         <div>
           <p>Description: <%= @job.description %></p>
           <p>Category: <%= @job.category.name %></p>
-          <p><strong>Rate per hour: <%= @job.rate %></strong></p>
+          <p><strong>Rate per hour: €<%= @job.rate %></strong></p>
           <% if current_user == @job.user %>
           <%= link_to "Edit", edit_job_path(@job), class: "btn btn-primary" %>
           <%= link_to "Delete", job_path(@job), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %>

@@ -12,7 +12,8 @@
           <p>Category: <%= @job.category.name %></p>
           <p>Rate per hour: <%= @job.rate %></p>
           <% if current_user == @job.user %>
-          <%= link_to "Delete", "#", class: "btn btn-primary" %>
+          <%= link_to "Edit", edit_job_path(@job), class: "btn btn-primary" %>
+          <%= link_to "Delete", job_path(@job), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %>
           <% else %>
           <%= link_to "Send request to seller", "#", class: "btn btn-primary" %>
           <% end %>

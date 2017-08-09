@@ -1,0 +1,39 @@
+<div class="text-center">
+  <h2>Requests</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <% @requests.each do |request| %>
+    <% if request.user == current_user %>
+    <div class="col-xs-6-offset-3">
+      <div class="card card-request">
+        <div class="card-category">Sent Request</div>
+        <div class="card-description">
+          <p>Status: <strong><%= request.status %></strong></p>
+          <p>Buyer: <%= request.user.first_name %> <%= request.user.last_name %> | Seller: <%= request.job.user.first_name %> <%= request.job.user.last_name %></p>
+          <p>Date: <%= request.date %> | Duration: <%= request.duration %> hours | Total price: $<%= request.total_price %></p>
+          <%= link_to "Cancel", cancel_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" } %>
+        </div>
+      </div>
+    </div>
+    <% elsif request.job.user == current_user %>
+    <div class="col-xs-6-offset-3">
+      <div class="card card-request">
+        <div class="card-category">Recieved Request</div>
+        <div class="card-description">
+          <p>Status: <strong><%= request.status %></strong></p>
+          <p>Buyer: <%= request.user.first_name %> <%= request.user.last_name %> | Seller: <%= request.job.user.first_name %> <%= request.job.user.last_name %></p>
+          <p>Date: <%= request.date %> | Duration: <%= request.duration %> hours | Total price: $<%= request.total_price %></p>
+          <%= link_to "Confirm", confirm_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" } %>
+          <%= link_to "Deny", deny_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" } %>
+        </div>
+      </div>
+    </div>
+    <% else%>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="text-center">
+  <%= link_to "Back to home", root_path, class: "btn btn-primary"%>
+</div>

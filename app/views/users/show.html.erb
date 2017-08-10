@@ -1,0 +1,41 @@
+<div class="text-center">
+  <h2 class="index-heading"><%= @user.first_name %> <%= @user.last_name %></h2>
+</div>
+
+<div class="container padded">
+  <div class="row">
+
+    <div class="col-xs-8">
+
+        <h4><%= @user.first_name %>'s Jobs</h4>
+
+        <% @user.jobs.each do |job| %>
+        <div>
+          <p>Title: <%= job.title %></p>
+          <p>Description: <%= job.description %></p>
+          <p>Rate: <%= job.rate %> per hour</p>
+          <p>Category: <%= job.category.name %></p>
+          <%= link_to "More info", job_path(job), class: "btn btn-primary btn-sm" %>
+        </div>
+        <% end %>
+
+    </div>
+
+    <div class="col-xs-4">
+      <img src=<%= @user.avatar %>>
+      <h4>Bio</h4>
+      <h4>Contact</h4>
+      <p><%= @user.email %></p>
+      <p><%= @user.phone_number %></p>
+      <p><%= @user.address %></p>
+    </div>
+
+  </div>
+</div>
+
+<div class="container padded">
+  <ul class="list-unstyled list-inline">
+    <li><%= link_to "Back to all jobs", jobs_path, class: "btn btn-primary"%></li>
+    <li><%= link_to "Back to home", root_path, class: "btn btn-primary"%></li>
+  </ul>
+</div>

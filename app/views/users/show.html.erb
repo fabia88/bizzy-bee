@@ -7,6 +7,7 @@
 
       <div class="padded-job-show">
         <h3>Bio</h3>
+        <p><%= @user.bio %></p>
       </div>
 
       <div class="padded-job-show">
@@ -26,12 +27,17 @@
 
     <!-- right col -->
     <div class="col-xs-4">
-      <div class="users-show-fixed">
-        <%= image_tag @user.avatar, class: "avatar-square-massive" %>
-        <h3>Contact <%= @user.first_name %></h3>
-        <p>Email: <%= @user.email %></p>
-        <p>Phone number: <%= @user.phone_number %></p>
-        <p>Address: <%= @user.address %></p>
+      <div class="users-show-fixed card-show">
+          <%= cl_image_tag @user.avatar, width: 300, height: 300, gravity: :face, crop: :lfill, class: "avatar-square-massive" %>
+          <h3>Contact <%= @user.first_name %></h3>
+          <p>Email: <%= @user.email %></p>
+          <p>Phone number: <%= @user.phone_number %></p>
+          <p>Address: <%= @user.address %></p>
+
+          <% if current_user == @user%>
+          <%= link_to "Edit user profile", edit_user_path, class: "btn btn-primary" %>
+          <% end %>
+
       </div>
     </div>
 

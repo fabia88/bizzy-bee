@@ -39,7 +39,7 @@ avatars.each_with_index do |x, index|
     phone_number: Faker::PhoneNumber.phone_number,
     address: Faker::Address.street_address,
     credit_card: Faker::Business.credit_card_number,
-    avatar: x
+    remote_avatar_url: x
     )
 end
 

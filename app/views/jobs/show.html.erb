@@ -1,4 +1,3 @@
-
 <div class="container padded">
   <div class="row">
     <!-- left col -->
@@ -28,9 +27,10 @@
       <div class="card-show">
         <img class="avatar-square" src=<%= @job.user.avatar %>>
         <h2><%= @job.user.first_name %> <%= @job.user.last_name %></h2>
-        <p>Address: <%= @job.user.address %></p>
         <p>Email: <%= @job.user.email %></p>
         <p>Phone number: <%= @job.user.phone_number %></p>
+        <p>Address: <%= @job.user.address %></p>
+        <%= link_to "View profile", user_path(@job.user), class: "btn btn-primary" %>
         <% if current_user == @job.user %>
         <%= link_to "Edit", edit_job_path(@job), class: "btn btn-primary" %>
         <%= link_to "Delete", job_path(@job), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %>

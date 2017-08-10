@@ -1,33 +1,38 @@
-<div class="text-center">
-  <h2 class="index-heading"><%= @user.first_name %> <%= @user.last_name %></h2>
-</div>
-
 <div class="container padded">
   <div class="row">
-
+    <!-- left col -->
     <div class="col-xs-8">
 
-        <h4><%= @user.first_name %>'s Jobs</h4>
+      <h2><%= @user.first_name %> <%= @user.last_name %></h2>
 
+      <div class="padded-job-show">
+        <h3>Bio</h3>
+      </div>
+
+      <div class="padded-job-show">
+        <h3>Jobs</h3>
         <% @user.jobs.each do |job| %>
-        <div>
+        <div class="card users-show-card">
           <p>Title: <%= job.title %></p>
-          <p>Description: <%= job.description %></p>
-          <p>Rate: <%= job.rate %> per hour</p>
-          <p>Category: <%= job.category.name %></p>
-          <%= link_to "More info", job_path(job), class: "btn btn-primary btn-sm" %>
+          <p>Rate: €<%= job.rate %> per hour</p>
+          <div class="users-show-top-right">
+            <%= link_to "View job page", job_path(job), class: "btn btn-primary btn-sm" %>
+          </div>
         </div>
         <% end %>
+      </div>
 
     </div>
 
+    <!-- right col -->
     <div class="col-xs-4">
-      <img src=<%= @user.avatar %>>
-      <h4>Bio</h4>
-      <h4>Contact</h4>
-      <p><%= @user.email %></p>
-      <p><%= @user.phone_number %></p>
-      <p><%= @user.address %></p>
+      <div class="users-show-fixed">
+        <%= image_tag @user.avatar, class: "avatar-square-massive" %>
+        <h3>Contact <%= @user.first_name %></h3>
+        <p>Email: <%= @user.email %></p>
+        <p>Phone number: <%= @user.phone_number %></p>
+        <p>Address: <%= @user.address %></p>
+      </div>
     </div>
 
   </div>

@@ -1,16 +1,21 @@
 .padded {
   padding-top: 150px;
   padding-bottom: 150px;
-  a {
-    padding: 30px 40px;
-  }
+}
+
+.padded {
   h4 {
     line-height: 2;
     color: $red;
   }
 }
 
-.padded-show {
-  padding-top: 150px;
-  padding-bottom: 150px;
+.padded-btn {
+  a {
+    padding: 30px 40px;
+  }
+}
+
+.padded-form {
+  padding-top: 50px;
 }

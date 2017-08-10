@@ -5,9 +5,18 @@
 </div>
 <div class="information padded text-center">
   <div class="container">
-    <h4>Do you want to get that extra money for your holidays?</h4>
-    <h4>Are you looking for a last-minute baby-sitter?</h4>
-    <h4><strong>BizzyBee is here to help!</strong></h4>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <h4>Do you want to get that extra money for your holidays?</h4>
+        <h4>Are you looking for a last-minute baby-sitter?</h4>
+        <h4><strong>BizzyBee is here to help!</strong></h4>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn btn-primary btn-lg" %>
+        <p>or</p>
+        <%= link_to t(".sign_up", default: "Sign-up"), new_user_registration_path, class: "btn btn-primary btn-lg" %>
+      </div>
+    </div>
   </div>
 </div>
 <div class="categories">
@@ -23,7 +32,7 @@
       <% end %>
     </div>
 
-    <div class="padded text-center">
+    <div class="padded padded-btn text-center">
       <div class="container">
         <%= link_to "Browse all jobs", jobs_path, class: "btn btn-primary" %>
       </div>

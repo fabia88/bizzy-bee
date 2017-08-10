@@ -19,6 +19,8 @@ gem 'uglifier'
 # additional gems
 gem 'devise'
 gem 'faker'
+gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
 
 group :development, :test do
   gem 'better_errors'

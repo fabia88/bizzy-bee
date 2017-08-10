@@ -1,40 +1,44 @@
-<div class="text-center">
-  <h2 class="index-heading"><%= @job.title %></h2>
-</div>
 
 <div class="container padded">
   <div class="row">
-
+    <!-- left col -->
     <div class="col-xs-8">
-      <div class="card-show">
-        <div class="card-show-category">Job Information</div>
+      <h2><%= @job.title %></h2>
+
+      <div class="padded-job-show">
+        <h3>Job Information</h3>
         <div>
-          <p>Description: <%= @job.description %></p>
           <p>Category: <%= @job.category.name %></p>
           <p><strong>Rate per hour: €<%= @job.rate %></strong></p>
-          <% if current_user == @job.user %>
-          <%= link_to "Edit", edit_job_path(@job), class: "btn btn-primary" %>
-          <%= link_to "Delete", job_path(@job), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %>
-          <% else %>
-          <%= link_to "Send request to seller", new_job_request_path(@job), class: "btn btn-primary" %>
-          <% end %>
         </div>
+      </div>
+
+      <div class="padded-job-show">
+        <h3>Description</h3>
+        <p><%= @job.description %></p>
+      </div>
+
+      <div class="padded-job-show">
+        <h3>Area</h3>
       </div>
     </div>
 
+    <!-- right col -->
     <div class="col-xs-4">
       <div class="card-show">
-        <div class="card-show-category">User Profile</div>
-        <div>
-          <h2><%= @job.user.first_name %> <%= @job.user.last_name %></h2>
-          <p>Address: <%= @job.user.address %></p>
-          <p>Email: <%= @job.user.email %></p>
-          <p>Phone number: <%= @job.user.phone_number %></p>
-        </div>
         <img class="avatar-square" src=<%= @job.user.avatar %>>
+        <h2><%= @job.user.first_name %> <%= @job.user.last_name %></h2>
+        <p>Address: <%= @job.user.address %></p>
+        <p>Email: <%= @job.user.email %></p>
+        <p>Phone number: <%= @job.user.phone_number %></p>
+        <% if current_user == @job.user %>
+        <%= link_to "Edit", edit_job_path(@job), class: "btn btn-primary" %>
+        <%= link_to "Delete", job_path(@job), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %>
+        <% else %>
+        <%= link_to "Send request to seller", new_job_request_path(@job), class: "btn btn-primary" %>
+        <% end %>
       </div>
     </div>
-
   </div>
 </div>
 

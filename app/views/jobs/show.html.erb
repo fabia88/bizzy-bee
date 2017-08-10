@@ -4,6 +4,7 @@
 
 <div class="container padded">
   <div class="row">
+
     <div class="col-xs-8">
       <div class="card-show">
         <div class="card-show-category">Job Information</div>
@@ -20,23 +21,26 @@
         </div>
       </div>
     </div>
+
     <div class="col-xs-4">
       <div class="card-show">
         <div class="card-show-category">User Profile</div>
         <div>
           <h2><%= @job.user.first_name %> <%= @job.user.last_name %></h2>
           <p>Address: <%= @job.user.address %></p>
+          <p>Email: <%= @job.user.email %></p>
           <p>Phone number: <%= @job.user.phone_number %></p>
         </div>
         <img class="avatar-square" src=<%= @job.user.avatar %>>
       </div>
     </div>
+
   </div>
 </div>
 
 <div class="container padded">
   <ul class="list-unstyled list-inline">
-  <li><%= link_to "Back to all jobs", jobs_path, class: "btn btn-primary"%></li>
+    <li><%= link_to "Back to all jobs", jobs_path, class: "btn btn-primary"%></li>
     <li><%= link_to "Back to home", root_path, class: "btn btn-primary"%></li>
   </ul>
 </div>

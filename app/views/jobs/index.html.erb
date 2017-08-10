@@ -1,6 +1,8 @@
-<h2 class="text-center index-heading">Job Listings</h2>
+<h2 class="text-center">Job Listings</h2>
+
 <div class="container">
   <div class="row">
+
     <% @jobs.each do |job| %>
     <div class="col-xs-12 col-sm-6">
       <div class="card-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= job.category.photo %>');">
@@ -14,8 +16,10 @@
       </div>
     </div>
     <% end %>
+
   </div>
-  <div class="padded">
-    <%= link_to "Back to home", root_path, class: "btn btn-primary"%>
-  </div>
+</div>
+
+<div class="container padded">
+  <%= link_to "Back to home", root_path, class: "btn btn-primary"%>
 </div>

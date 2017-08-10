@@ -1,4 +1,5 @@
 class RequestsController < ApplicationController
+  before_action :set_request, only: [:confirm, :deny, :cancel]
   def index
     @requests = Request.all.sort_by { |request| request.created_at }
   end
@@ -23,27 +24,27 @@ class RequestsController < ApplicationController
   end
 
   def confirm
-    @request = Request.find(params[:id])
     @request.status = "Confirmed"
     @request.save
     redirect_to requests_path
   end
 
   def deny
-    @request = Request.find(params[:id])
     @request.status = "Denied"
     @request.save
     redirect_to requests_path
   end
 
   def cancel
-    @request = Request.find(params[:id])
     @request.status = "Cancelled"
     @request.save
     redirect_to requests_path
   end
 
   private
+  def set_request
+    @request = Request.find(params[:id])
+  end
   def request_params
     params.require(:request).permit(:date, :duration)
   end

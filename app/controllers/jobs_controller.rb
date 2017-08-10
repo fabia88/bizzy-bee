@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  before_action :set_job, only: [:show, :edit, :update, :destroy]
   def index
     if params[:category]
       @category = Category.find_by_name(params[:category])
@@ -9,7 +10,6 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job = Job.find(params[:id])
   end
 
   def new
@@ -27,11 +27,9 @@ class JobsController < ApplicationController
   end
 
   def edit
-    @job = Job.find(params[:id])
   end
 
   def update
-    @job = Job.find(params[:id])
     if @job.update(job_params)
       redirect_to job_path(@job)
     else
@@ -40,12 +38,15 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    @job = Job.find(params[:id])
     @job.destroy
     redirect_to jobs_path
   end
 
   private
+  def set_job
+    @job = Job.find(params[:id])
+  end
+
   def job_params
     params.require(:job).permit(:title, :description, :rate, :category_id)
   end

@@ -1,15 +1,16 @@
 <div class="banner" style="background: url(<%= image_path "background.jpg" %>)">
   <div>
-    <h2>Welcome to BizzyBee</h2>
+    <h1>Welcome to Bizzy Bee</h1>
   </div>
 </div>
-<div class="information padded text-center">
+
+<div class="padded text-center">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-6">
         <h4>Do you want to get that extra money for your holidays?</h4>
         <h4>Are you looking for a last-minute baby-sitter?</h4>
-        <h4><strong>BizzyBee is here to help!</strong></h4>
+        <h4><strong>Bizzy Bee is here to help!</strong></h4>
       </div>
       <div class="col-xs-12 col-md-6">
         <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn btn-primary btn-lg" %>
@@ -19,23 +20,20 @@
     </div>
   </div>
 </div>
-<div class="categories">
-  <div class="container">
-    <div class="row">
-      <% @categories.each do |category| %>
-      <div class="col-xs-12 col-md-4">
-        <div class="card-homepage text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path category.photo, height: 175, crop: :scale %>)">
-          <h4><%= category.name %></h4>
-        </div>
-        <%= link_to "", jobs_path(category: category.name), class: "card-link" %>
-      </div>
-      <% end %>
-    </div>
 
-    <div class="padded padded-btn text-center">
-      <div class="container">
-        <%= link_to "Browse all jobs", jobs_path, class: "btn btn-primary" %>
+<div class="container">
+  <div class="row">
+    <% @categories.each do |category| %>
+    <div class="col-xs-12 col-md-4">
+      <div class="card-homepage text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path category.photo, height: 175, crop: :scale %>)">
+        <h4><%= category.name %></h4>
       </div>
+      <%= link_to "", jobs_path(category: category.name), class: "card-link" %>
     </div>
+    <% end %>
   </div>
+</div>
+
+<div class="padded padded-btn text-center">
+  <%= link_to "Browse all jobs", jobs_path, class: "btn btn-primary" %>
 </div>

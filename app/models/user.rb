@@ -6,4 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :avatar, PhotoUploader
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end

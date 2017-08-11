@@ -8,10 +8,9 @@
       <div class="card-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= job.category.photo %>');">
         <div class="card-description">
           <h4><%= job.title %></h4>
-          <p><%= job.description %></p>
-          <p><%= job.rate %> per hour </p>
+          <p>€<%= job.rate %> per hour </p>
         </div>
-        <%= image_tag (job.user.avatar || "avatar-placeholder.png"), class: "card-user" %>
+        <%= cl_image_tag job.user.avatar, width: 40, height: 40, gravity: :face, crop: :thumb, class: "card-user" %>
         <%= link_to "", job_path(job.id), class: "card-link"%>
       </div>
     </div>

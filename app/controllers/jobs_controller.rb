@@ -10,6 +10,7 @@ class JobsController < ApplicationController
   end
 
   def show
+    @user_coord = { lat: @job.user.latitude, lng: @job.user.longitude }
   end
 
   def new

@@ -2,10 +2,11 @@
   <div class="row">
     <!-- left col -->
     <div class="col-xs-8">
+
       <h2><%= @job.title %></h2>
 
       <div class="padded-job-show">
-        <h3>Job Information</h3>
+        <h3>Price and general information</h3>
         <div>
           <p>Category: <%= @job.category.name %></p>
           <p><strong>Rate per hour: €<%= @job.rate %></strong></p>
@@ -13,38 +14,58 @@
       </div>
 
       <div class="padded-job-show">
-        <h3>Description</h3>
+        <h3>Job description</h3>
         <p><%= @job.description %></p>
       </div>
 
       <div class="padded-job-show">
-        <h3>Area</h3>
-      </div>
-    </div>
+        <h3>Where I am available</h3>
+        <!-- The map will be drawn in this div -->
+        <div id="map" style="width: 100%; height: 600px;"></div>
+        <% content_for(:after_js) do %>
+        <%= javascript_tag do %>
+        $(document).ready(function() {
+        var map = Gmaps.build('Google');
+        map.buildMap({ internal: { id: 'map' } }, function() {
+        markers = map.addMarkers([{
+        "lat": <%= @user_coord[:lat] %>,
+        "lng": <%= @user_coord[:lng] %>
+      }]);
+      map.bounds.extendWith(markers);
+      map.fitMapToBounds();
+    });
+  });
+  <% end %>
+  <% end %>
+</div>
+</div>
 
-    <!-- right col -->
-    <div class="col-xs-4">
-      <div class="card-show">
-        <img class="avatar-square" src=<%= @job.user.avatar %>>
-        <h2><%= @job.user.first_name %> <%= @job.user.last_name %></h2>
-        <p>Email: <%= @job.user.email %></p>
-        <p>Phone number: <%= @job.user.phone_number %></p>
-        <p>Address: <%= @job.user.address %></p>
-        <%= link_to "View profile", user_path(@job.user), class: "btn btn-primary" %>
-        <% if current_user == @job.user %>
-        <%= link_to "Edit", edit_job_path(@job), class: "btn btn-primary" %>
-        <%= link_to "Delete", job_path(@job), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %>
-        <% else %>
-        <%= link_to "Send request to seller", new_job_request_path(@job), class: "btn btn-primary" %>
-        <% end %>
+
+
+<!-- right col -->
+<div class="col-xs-4">
+  <div class="card-show">
+    <%= cl_image_tag @job.user.avatar, width: 150, height: 150, gravity: :face, crop: :lfill, class: "avatar-square" %>
+    <h2><%= @job.user.first_name %> <%= @job.user.last_name %></h2>
+    <p>Email: <%= @job.user.email %></p>
+    <p>Phone number: <%= @job.user.phone_number %></p>
+    <p>Address: <%= @job.user.address %></p>
+    
+    <% if current_user == @job.user %>
+    <%= link_to "Edit", edit_job_path(@job), class: "btn btn-primary" %>
+    <%= link_to "Delete", job_path(@job), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %>
+    <% else %>
+    <%= link_to "View profile", user_path(@job.user), class: "btn btn-primary" %>
+    <%= link_to "Send request to seller", new_job_request_path(@job), class: "btn btn-primary" %>
+    <% end %>
       </div>
     </div>
-  </div>
+</div>
 </div>
 
 <div class="container padded">
   <ul class="list-unstyled list-inline">
-    <li><%= link_to "Back to all jobs", jobs_path, class: "btn btn-primary"%></li>
-    <li><%= link_to "Back to home", root_path, class: "btn btn-primary"%></li>
+    <li><%= link_to "Back to jobs", jobs_path, class: "btn btn-primary"%></li>
   </ul>
 </div>
+

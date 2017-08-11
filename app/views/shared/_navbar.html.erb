@@ -17,8 +17,7 @@
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <% image = current_user.avatar.url || "avatar-placeholder.png" %>
-        <%= image_tag image, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <%= cl_image_tag current_user.avatar, width: 40, height: 40, gravity: :face, crop: :thumb, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
             <%= link_to user_path(current_user) do %>

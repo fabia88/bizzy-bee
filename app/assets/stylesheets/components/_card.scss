@@ -19,7 +19,7 @@
   position: relative;
   h4 {
     text-transform: uppercase;
-    }
+  }
 }
 .card-user {
   position: absolute;
@@ -102,17 +102,17 @@
 }
 
 .card-request {
-  color: $gray;
-  background-color: $light-gray;
-      /* height: 175px; */
+  // color: #3F4045;
   padding: 25px;
   margin: 30px;
-  // min-height: 300px;
+  padding-bottom: 50px;
+  padding-top: 20px;
+  border-top: 1px solid #3F4045;
   position: relative;
 }
 .card-request-btn {
   position: absolute;
-  top: 20px;
+  bottom: 0px;
   right: 20px;
 }
 
@@ -122,11 +122,11 @@
   right: 20px;
 }
 
-.card-request h2 {
-  font-size: 24px;
-}
+// .card-request h2 {
+//   font-size: 24px;
+// }
 .card-request p {
-  font-size: 14px;
+  // font-size: 14px;
   // opacity: 0.7;
-  font-weight: lighter;
+  // font-weight: lighter;
 }

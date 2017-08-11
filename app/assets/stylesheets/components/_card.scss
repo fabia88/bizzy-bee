@@ -104,4 +104,23 @@
 .card-request {
   color: $gray;
   background-color: $light-gray;
+      /* height: 175px; */
+  padding: 10px;
+  margin: 15px;
+  // min-height: 300px;
+  position: relative;
+}
+.card-request-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.card-request h2 {
+  font-size: 24px;
+}
+.card-request p {
+  font-size: 14px;
+  // opacity: 0.7;
+  font-weight: lighter;
 }

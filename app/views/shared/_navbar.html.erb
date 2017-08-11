@@ -4,6 +4,16 @@
   <%= image_tag "logo.png" %>
   <% end %>
 
+  <form action="/jobs" class="navbar-form navbar-right" role="search">
+    <div class="input-group">
+    <input type="text" class="form-control" placeholder="Search Jobs" name="search">
+      <span class="input-group-btn">
+        <input type="submit" class="btn btn-default" value="Search">
+
+      </span>
+    </div>
+  </form>
+
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
@@ -11,7 +21,7 @@
 
     <!-- Links when logged in -->
     <%= link_to "New Job", new_job_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "My jobs", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "My Jobs", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "My Requests", requests_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Avatar with dropdown menu -->

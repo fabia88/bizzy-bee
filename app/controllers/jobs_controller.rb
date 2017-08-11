@@ -7,6 +7,10 @@ class JobsController < ApplicationController
     else
       @jobs = Job.all
     end
+
+    if params[:search].present?
+      @jobs = @jobs.select{|job| job.title.downcase.include?(params[:search].downcase)}
+    end
   end
 
   def show

@@ -1,7 +1,8 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:confirm, :deny, :cancel]
   def index
-    @requests = Request.all.sort_by { |request| request.created_at }
+    @received_requests = current_user.received_requests.sort_by { |received_request| received_request.created_at }
+    @sent_requests = current_user.requests.sort_by { |sent_request| sent_request.created_at }
   end
 
   def new
@@ -49,3 +50,5 @@ class RequestsController < ApplicationController
     params.require(:request).permit(:date, :duration)
   end
 end
+
+

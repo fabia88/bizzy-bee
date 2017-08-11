@@ -31,7 +31,7 @@ avatars = ["http://lorempixel.com/output/people-q-c-200-200-9.jpg",
 first_names = %w(Anna Brie Zoe Valentina)
 last_names =  %w(Smith Garcia Baker Williamson)
 avatars.each_with_index do |x, index|
-  User.create!(
+  user = User.create!(
     email: Faker::Internet.email(first_names[index]),
     password: "123456",
     first_name: first_names[index],

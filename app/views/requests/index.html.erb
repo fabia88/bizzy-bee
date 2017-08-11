@@ -11,7 +11,7 @@
 
       <div class="card-request">
         <div class="card-request-btn">
-        <%= link_to "Go to Job", job_path(request.job), class: "btn btn-primary", method: :get %>
+        <%= link_to "View Job Page", job_path(request.job), class: "btn btn-primary", method: :get %>
           <%= link_to "Cancel", cancel_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" }  unless request.cancelled?%>
         </div>
         <div>
@@ -30,9 +30,9 @@
 
       <div class="card-request">
         <div class="card-request-btn">
-          <%= link_to "Go to Job", job_path(request.job), class: "btn btn-primary", method: :get %>
-          <%= link_to "Confirm", confirm_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" }unless request.confirmed? %>
-          <%= link_to "Deny", deny_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" } unless request.denied? %>
+          <%= link_to "View Job Page", job_path(request.job), class: "btn btn-primary", method: :get %>
+          <%= link_to "Confirm", confirm_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" } unless request.confirmed? || request.denied? %>
+          <%= link_to "Deny", deny_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" } unless request.denied? || request.confirmed?  %>
         </div>
         <div>
           <h3>Status: <strong><%= request.status %></strong></h3>

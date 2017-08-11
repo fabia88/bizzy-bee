@@ -1,5 +1,7 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:confirm, :deny, :cancel]
+
+
   def index
     @received_requests = current_user.received_requests.sort_by { |received_request| received_request.created_at }
     @sent_requests = current_user.requests.sort_by { |sent_request| sent_request.created_at }

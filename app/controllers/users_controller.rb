@@ -27,7 +27,8 @@ class UsersController < ApplicationController
       :address,
       :bio,
       :avatar,
-      :avatar_cache
+      :avatar_cache,
+      :area
       )
   end
 end

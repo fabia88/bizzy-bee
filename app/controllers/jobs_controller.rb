@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [ :index, :show]
   def index
     if params[:category]
       @category = Category.find_by_name(params[:category])

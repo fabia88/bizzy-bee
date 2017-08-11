@@ -1,43 +1,45 @@
 <div class="text-center index-heading">
-  <h2>Requests</h2>
+
 </div>
 
 <div class="container padded-show">
   <div class="row">
 
     <div class="col-xs-12 col-sm-6">
-    <% @sent_requests.each do |request| %>
+      <h2 class=text-center>Sent Requests</h2>
+      <% @sent_requests.each do |request| %>
 
       <div class="card-request">
         <div class="card-request-btn">
           <%= link_to "Cancel", cancel_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" }  unless request.cancelled?%>
         </div>
-        <div>Sent Request
+        <div>
           <p>Status: <strong><%= request.status %></strong></p>
           <p>Job: <%= request.job.title %></p>
           <p>Buyer: <%= request.user.first_name %> <%= request.user.last_name %> | Seller: <%= request.job.user.first_name %> <%= request.job.user.last_name %></p>
           <p>Date: <%= request.date %> | Duration: <%= request.duration %> hours | Total price: €<%= request.total_price %></p>
         </div>
       </div>
-    <% end %>
+      <% end %>
     </div>
 
     <div class="col-xs-12 col-sm-6">
-    <% @received_requests.each do |request| %>
+    <h2 class=text-center>Received Requests</h2>
+      <% @received_requests.each do |request| %>
 
       <div class="card-request">
         <div class="card-request-btn">
           <%= link_to "Confirm", confirm_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" }unless request.confirmed? %>
           <%= link_to "Deny", deny_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" } unless request.denied? %>
         </div>
-        <div>Recieved Request
+        <div>
           <p>Status: <strong><%= request.status %></strong></p>
           <p>Job: <%= request.job.title %></p>
           <p>Buyer: <%= request.user.first_name %> <%= request.user.last_name %> | Seller: <%= request.job.user.first_name %> <%= request.job.user.last_name %></p>
           <p>Date: <%= request.date %> | Duration: <%= request.duration %> hours | Total price: €<%= request.total_price %></p>
         </div>
       </div>
-    <% end %>
+      <% end %>
     </div>
   </div>
 </div>

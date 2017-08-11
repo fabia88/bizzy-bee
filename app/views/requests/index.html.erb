@@ -5,10 +5,9 @@
 <div class="container padded-show">
   <div class="row">
 
-    <% @requests.each do |request| %>
-
-    <% if request.user == current_user %>
     <div class="col-xs-12 col-sm-6">
+    <% @sent_requests.each do |request| %>
+
       <div class="card-request">
         <div class="card-request-btn">
           <%= link_to "Cancel", cancel_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" }  unless request.cancelled?%>
@@ -20,12 +19,15 @@
           <p>Date: <%= request.date %> | Duration: <%= request.duration %> hours | Total price: €<%= request.total_price %></p>
         </div>
       </div>
+    <% end %>
     </div>
-    <% elsif request.job.user == current_user %>
+
     <div class="col-xs-12 col-sm-6">
+    <% @received_requests.each do |request| %>
+
       <div class="card-request">
         <div class="card-request-btn">
-        <%= link_to "Confirm", confirm_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" }unless request.confirmed? %>
+          <%= link_to "Confirm", confirm_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" }unless request.confirmed? %>
           <%= link_to "Deny", deny_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" } unless request.denied? %>
         </div>
         <div>Recieved Request
@@ -35,9 +37,8 @@
           <p>Date: <%= request.date %> | Duration: <%= request.duration %> hours | Total price: €<%= request.total_price %></p>
         </div>
       </div>
+    <% end %>
     </div>
-    <% end %>
-    <% end %>
   </div>
 </div>
 <div class="container padded">

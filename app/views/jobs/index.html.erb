@@ -11,7 +11,7 @@
           <p><%= job.description %></p>
           <p><%= job.rate %> per hour </p>
         </div>
-        <%= image_tag (job.user.avatar || "avatar-placeholder.png"), class: "card-user" %>
+        <%= image_tag(job.user.avatar.url || "avatar-placeholder.png", class: "card-user") %>
         <%= link_to "", job_path(job.id), class: "card-link"%>
       </div>
     </div>

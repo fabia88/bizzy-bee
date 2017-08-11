@@ -11,6 +11,7 @@
 
       <div class="card-request">
         <div class="card-request-btn">
+        <%= link_to "Go to Job", job_path(request.job), class: "btn btn-primary", method: :get %>
           <%= link_to "Cancel", cancel_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" }  unless request.cancelled?%>
         </div>
         <div>
@@ -24,11 +25,12 @@
     </div>
 
     <div class="col-xs-12 col-sm-6">
-    <h2 class=text-center>Received Requests</h2>
+      <h2 class=text-center>Received Requests</h2>
       <% @received_requests.each do |request| %>
 
       <div class="card-request">
         <div class="card-request-btn">
+          <%= link_to "Go to Job", job_path(request.job), class: "btn btn-primary", method: :get %>
           <%= link_to "Confirm", confirm_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" }unless request.confirmed? %>
           <%= link_to "Deny", deny_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" } unless request.denied? %>
         </div>

@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [ :index, :show]
   def index
     if params[:category]
       @category = Category.find_by_name(params[:category])
@@ -7,10 +8,14 @@ class JobsController < ApplicationController
     else
       @jobs = Job.all
     end
+
+    if params[:search].present?
+      @jobs = @jobs.select{|job| job.title.downcase.include?(params[:search].downcase)}
+    end
   end
 
   def show
-    @area = @job.user.area
+    @area = @job.user.area == nil ? 2 : @job.user.area
     @user_coord = { lat: @job.user.latitude, lng: @job.user.longitude }
     @request = Request.new
   end

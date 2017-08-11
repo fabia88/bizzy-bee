@@ -27,6 +27,7 @@ gem "gmaps4rails"
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'better_errors'

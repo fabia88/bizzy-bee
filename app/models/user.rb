@@ -5,7 +5,8 @@ class User < ApplicationRecord
   has_many :requests
   validates :first_name, :last_name, :address, presence: true
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook]
 
   mount_uploader :avatar, AvatarUploader
 

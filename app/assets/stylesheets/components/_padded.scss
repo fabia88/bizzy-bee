@@ -1,25 +1,21 @@
 .padded {
-  padding-top: 150px;
-  padding-bottom: 150px;
-}
-
-.padded {
+  padding: 100px 0;
   h4 {
     line-height: 2;
     color: $red;
   }
 }
-
+.padded-index {
+  margin: 70px auto;
+}
 .padded-btn {
   a {
     padding: 30px 40px;
   }
 }
-
 .padded-form {
   padding-top: 50px;
 }
-
 .padded-job-show {
   padding-bottom: 120px;
   padding-top: 30px;

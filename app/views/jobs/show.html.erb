@@ -1,3 +1,6 @@
+<div class="container">
+  <%= link_to "< Job Listings", jobs_path, class: "link"%>
+</div>
 <div class="container padded">
   <div class="row">
     <!-- left col -->
@@ -23,21 +26,21 @@
         <!-- The map will be drawn in this div -->
         <div id="map" style="width: 100%; height: 600px;"></div>
         <% content_for(:after_js) do %>
-          <%= javascript_tag do %>
-            $(document).ready(function() {
-              var map = Gmaps.build('Google');
-              map.buildMap({ internal: { id: 'map' } }, function() {
-              markers = map.addCircles([{
-              "lat": <%= @user_coord[:lat] %>,
-              "lng": <%= @user_coord[:lng] %>,
-              "radius": <%= @area * 100 %>
-              }], { strokeColor: '#3F4045' }, { fillColor: '#FF0000' });
-              map.bounds.extendWith(markers);
-              map.fitMapToBounds();
-              });
-            });
-          <% end %>
-        <% end %>
+        <%= javascript_tag do %>
+        $(document).ready(function() {
+        var map = Gmaps.build('Google');
+        map.buildMap({ internal: { id: 'map' } }, function() {
+        markers = map.addCircles([{
+        "lat": <%= @user_coord[:lat] %>,
+        "lng": <%= @user_coord[:lng] %>,
+        "radius": <%= @area * 100 %>
+      }], { strokeColor: '#3F4045' }, { fillColor: '#FF0000' });
+      map.bounds.extendWith(markers);
+      map.fitMapToBounds();
+    });
+  });
+  <% end %>
+  <% end %>
 </div>
 </div>
 
@@ -53,27 +56,25 @@
     <p>Address: <%= @job.user.address %></p>
 
     <% if current_user == @job.user %>
-    <%= link_to "Edit", edit_job_path(@job), class: "btn btn-primary" %>
-    <%= link_to "Delete", job_path(@job), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %>
+    <ul class="list-inline unstyled">
+    <li><%= link_to "Edit", edit_job_path(@job), class: "link-edit" %></li>
+      <li><%= link_to "Delete", job_path(@job), class: "link-edit", method: :delete, data: { confirm: "Are you sure?" } %>
+      </li>
+    </ul>
     <% else %>
-    <%= link_to "View profile", user_path(@job.user), class: "btn btn-primary" %>
-    <button class="btn btn-primary btn-js">Send request</button>
+    <%= link_to "View profile", user_path(@job.user), class: "link-edit" %>
+    <button class="btn btn-blue btn-js">Send request</button>
     <div class="form-group">
-        <%= simple_form_for([@job, @request]) do |f| %>
-        <%= f.input :date, :label => "Date", class: "form-control" %>
-        <%= f.input :duration, :label => "Duration", class: "form-control" %>
-        <%= f.button :submit, "Send request", class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    <% end %>
-      </div>
+      <%= simple_form_for([@job, @request]) do |f| %>
+      <%= f.input :date, :label => "Date", class: "form-control" %>
+      <%= f.input :duration, :label => "Duration", class: "form-control" %>
+      <%= f.button :submit, "Send request", class: "btn btn-blue" %>
+      <% end %>
     </div>
+    <% end %>
+  </div>
+</div>
 </div>
 </div>
 
-<div class="container padded">
-  <ul class="list-unstyled list-inline">
-    <li><%= link_to "Back to jobs", jobs_path, class: "btn btn-primary"%></li>
-  </ul>
-</div>
 

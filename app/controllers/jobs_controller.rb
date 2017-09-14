@@ -9,8 +9,8 @@ class JobsController < ApplicationController
       @jobs = Job.all
     end
 
-    if params[:search].present?
-      @jobs = @jobs.select{|job| job.title.downcase.include?(params[:search].downcase)}
+    if params[:query].present?
+      @jobs = @jobs.select{|job| job.title.downcase.include?(params[:query].downcase)}
     end
   end
 

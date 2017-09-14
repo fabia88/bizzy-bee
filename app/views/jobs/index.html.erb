@@ -1,16 +1,18 @@
-<h2 class="text-center">Job Listings</h2>
-
 <div class="container">
-  <div class="row">
+  <h2 class="text-center">Job Listings</h2>
+  <%= link_to "< Home", root_path, class: "link"%>
+</div>
 
+<div class="container padded-index">
+  <div class="row">
     <% @jobs.each do |job| %>
-    <div class="col-xs-12 col-sm-6">
-      <div class="card-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= job.category.photo %>');">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="card-index"> <!-- style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= job.category.photo %>');" -->
+      <%= cl_image_tag job.user.avatar %>
         <div class="card-description">
           <h4><%= job.title %></h4>
           <p>€<%= job.rate %> per hour </p>
         </div>
-        <%= cl_image_tag job.user.avatar, width: 40, height: 40, gravity: :face, crop: :thumb, class: "card-user" %>
         <%= link_to "", job_path(job.id), class: "card-link"%>
       </div>
     </div>
@@ -19,6 +21,3 @@
   </div>
 </div>
 
-<div class="container padded">
-  <%= link_to "Back to home", root_path, class: "btn btn-primary"%>
-</div>

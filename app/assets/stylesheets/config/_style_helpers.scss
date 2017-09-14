@@ -1,0 +1,17 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 100px;
+}
+
+.pages-home {
+  padding-top: 0;
+}
+
+form {
+  .form-control {
+    border-radius: 5px;
+  }
+}

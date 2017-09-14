@@ -1,18 +1,17 @@
-<div class="text-center index-heading">
-
+<div class="container">
+  <%= link_to "< Home", root_path, class: "link"%>
 </div>
-
 <div class="container padded-show">
   <div class="row">
 
     <div class="col-xs-12 col-sm-6">
       <h2 class=text-center>Sent Requests</h2>
       <% @sent_requests.each do |request| %>
-
+      <!-- unless request.status == "Cancelled" %> -->
       <div class="card-request">
         <div class="card-request-btn">
-        <%= link_to "View Job Page", job_path(request.job), class: "btn btn-primary", method: :get %>
-          <%= link_to "Cancel", cancel_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" }  unless request.cancelled?%>
+        <%= link_to "Job Advert", job_path(request.job), class: "btn btn-blue", method: :get %>
+          <%= link_to "Cancel", cancel_request_path(request), class: "btn btn-blue", method: :patch, data: { confirm: "Are you sure?" }  unless request.cancelled? %>
         </div>
         <div>
           <h3>Status: <strong><%= request.status %></strong></h3>
@@ -21,6 +20,7 @@
           <p>Date: <%= request.date %> | Duration: <%= request.duration %> hours | Total price: €<%= request.total_price %></p>
         </div>
       </div>
+       <!-- end %> -->
       <% end %>
     </div>
 
@@ -30,9 +30,9 @@
 
       <div class="card-request">
         <div class="card-request-btn">
-          <%= link_to "View Job Page", job_path(request.job), class: "btn btn-primary", method: :get %>
-          <%= link_to "Confirm", confirm_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" } unless request.confirmed? || request.denied? %>
-          <%= link_to "Deny", deny_request_path(request), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure?" } unless request.denied? || request.confirmed?  %>
+          <%= link_to "View Job Page", job_path(request.job), class: "btn btn-blue", method: :get %>
+          <%= link_to "Confirm", confirm_request_path(request), class: "btn btn-blue", method: :patch, data: { confirm: "Are you sure?" } unless request.confirmed? || request.denied? %>
+          <%= link_to "Deny", deny_request_path(request), class: "btn btn-blue", method: :patch, data: { confirm: "Are you sure?" } unless request.denied? || request.confirmed?  %>
         </div>
         <div>
           <h3>Status: <strong><%= request.status %></strong></h3>
@@ -44,7 +44,4 @@
       <% end %>
     </div>
   </div>
-</div>
-<div class="container padded">
-  <%= link_to "Back to home", root_path, class: "btn btn-primary"%>
 </div>

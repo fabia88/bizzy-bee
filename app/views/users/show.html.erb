@@ -1,15 +1,18 @@
+<div class="container">
+<ul class="list-inline unstyled">
+  <li class="links"><%= link_to "< Home", root_path, class: "link"%></li>
+  <li class="links"><%= link_to "< Job Listings", jobs_path, class: "link"%></li>
+</ul>
+</div>
 <div class="container padded">
   <div class="row">
     <!-- left col -->
     <div class="col-xs-8">
-
       <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-
       <div class="padded-job-show">
         <h3>Bio</h3>
         <p><%= @user.bio %></p>
       </div>
-
       <div class="padded-job-show">
         <h3>Jobs</h3>
         <% @user.jobs.each do |job| %>
@@ -17,36 +20,28 @@
           <p>Title: <%= job.title %></p>
           <p>Rate: €<%= job.rate %> per hour</p>
           <div class="users-show-top-right">
-            <%= link_to "View job page", job_path(job), class: "btn btn-primary btn-sm" %>
+            <%= link_to "View job page", job_path(job), class: "btn btn-blue" %>
           </div>
         </div>
         <% end %>
       </div>
-
     </div>
 
     <!-- right col -->
     <div class="col-xs-4">
       <div class="users-show-fixed card-show">
-          <%= cl_image_tag @user.avatar, width: 300, height: 300, gravity: :face, crop: :lfill, class: "avatar-square-massive" %>
-          <h3>Contact <%= @user.first_name %></h3>
-          <p>Email: <%= @user.email %></p>
-          <p>Phone number: <%= @user.phone_number %></p>
-          <p>Address: <%= @user.address %></p>
+        <%= cl_image_tag @user.avatar, width: 300, height: 300, gravity: :face, crop: :lfill, class: "avatar-square-massive" %>
+        <h3>Contact <%= @user.first_name %></h3>
+        <p>Email: <%= @user.email %></p>
+        <p>Phone number: <%= @user.phone_number %></p>
+        <p>Address: <%= @user.address %></p>
 
-          <% if current_user == @user%>
-          <%= link_to "Edit user profile", edit_user_path, class: "btn btn-primary" %>
-          <% end %>
+        <% if current_user == @user%>
+        <%= link_to "Edit user profile", edit_user_path, class: "btn btn-blue" %>
+        <% end %>
 
       </div>
     </div>
 
   </div>
-</div>
-
-<div class="container padded">
-  <ul class="list-unstyled list-inline">
-    <li><%= link_to "Back to all jobs", jobs_path, class: "btn btn-primary"%></li>
-    <li><%= link_to "Back to home", root_path, class: "btn btn-primary"%></li>
-  </ul>
 </div>

@@ -1,0 +1,66 @@
+.btn-blue {
+  border-radius: 5px;
+  border: 1px solid $blue;
+  color: $white;
+  padding: 5px 10px;
+  background-color: $blue;
+  transition: all 0.1s ease;
+  max-width: 100%;
+}
+.btn-blue:hover {
+  background-color: darken($blue, 7%);
+  border-color: darken($blue, 7%);
+}
+
+// Links
+.link {
+  color: $gray;
+  font-size: 15px;
+  position: absolute;
+  top: 150px;
+  &:hover {
+  color: $red;
+  text-decoration: none;
+  }
+}
+.link-home {
+  color: $gray;
+  font-size: 25px;
+  &:hover {
+  color: $red;
+  text-decoration: none;
+  }
+}
+
+li.links {
+  padding-left: 0px;
+  padding-right: 62px;
+}
+
+.link-edit {
+  color: $light-gray;
+  font-size: 15px;
+  &:hover {
+  color: $red;
+  text-decoration: none;
+  }
+}
+
+// Sign up button
+.btn-signup {
+  width: 125px;
+  height: 50px;
+  border-radius: 5px;
+  border: 2px solid $blue;
+  color: $blue;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: $white;
+  padding: 5px 10px;
+  transition: all 0.1s ease;
+  &:hover {
+  background-color: $blue;
+  color: $white;
+  }
+}
+

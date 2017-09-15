@@ -14,8 +14,12 @@
   width: 100%;
   z-index: 999;
 }
-.navbar-hidden {
-  display: none;
+.navbar-transparent {
+  background: transparent !important;
+  box-shadow: none;
+}
+.navbar-opaque {
+  background: $white !important;
 }
 
 /* Logo */
